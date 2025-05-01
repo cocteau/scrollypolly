@@ -8,13 +8,13 @@
   const graphics = [
     {
       id: 'graphic-1',
-      url: 'https://datawrapper.dwcdn.net/YOURDATAWRAPPERURL1/1/',
+      url: 'https://datawrapper.dwcdn.net/rtCXv/1/',
       alt: 'Description of your first visualization',
       title: 'First Visualization'
     },
     {
       id: 'graphic-2',
-      url: 'https://datawrapper.dwcdn.net/YOURDATAWRAPPERURL2/1/',
+      url: 'https://datawrapper.dwcdn.net/rtCXv/1/',
       alt: 'Description of your second visualization',
       title: 'Second Visualization'
     }

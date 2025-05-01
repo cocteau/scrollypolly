@@ -13,36 +13,33 @@
     width: window.innerWidth * 0.8,
     height: window.innerHeight * 0.7
   };
+
+  let useLayerCake = false; // Set to true to use LayerCake instead of direct embed
 </script>
 
 <div class="visualization-container">
-  <!-- Use either a direct Datawrapper embed OR a LayerCake viz -->
   {#if graphic}
-    <!-- Option 1: Direct Datawrapper embed -->
-    <DatawrapperGraphic {graphic} />
-    
-    <!-- Option 2: LayerCake visualization with Datawrapper as a component -->
-    <!-- Uncomment this section if you want to use LayerCake's features
-    <div class="layercake-container">
-      <LayerCake
-        data={chartData}
-        x={d => d.x}
-        y={d => d.y}
-        padding={{ top: 20, right: 20, bottom: 30, left: 40 }}
-        {...dimensions}
-      >
-        <ScaledSvg>
-          <DatawrapperGraphic {graphic} />
-          
-          <!-- You can add additional LayerCake visualization components here -->
-          <!-- <AxisX /> -->
-          <!-- <AxisY /> -->
-          <!-- <Line /> -->
-          <!-- etc. -->
-        </ScaledSvg>
-      </LayerCake>
-    </div>
-    -->
+    {#if !useLayerCake}
+      <!-- Option 1: Direct Datawrapper embed -->
+      <DatawrapperGraphic {graphic} />
+    {:else}
+      <!-- Option 2: LayerCake visualization with Datawrapper as a component -->
+      <div class="layercake-container">
+        <LayerCake
+          data={chartData}
+          x={d => d.x}
+          y={d => d.y}
+          padding={{ top: 20, right: 20, bottom: 30, left: 40 }}
+          {...dimensions}
+        >
+          <ScaledSvg>
+            <DatawrapperGraphic {graphic} />
+            
+            <!-- Add additional LayerCake visualization components here if needed -->
+          </ScaledSvg>
+        </LayerCake>
+      </div>
+    {/if}
   {/if}
 </div>
 
